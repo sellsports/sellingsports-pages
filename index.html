@@ -8,22 +8,31 @@
       const path = window.location.pathname.toLowerCase();
       const query = window.location.search;
       const hash = window.location.hash;
-      let target = "https://antsports.tv"; 
+      let target = "https://antsports.tv/"; 
 
-      if (path.startsWith("/a")) {
-        target += "?utm_source=partnerA&utm_medium=A" + query + hash;
-      } else if (path.startsWith("/b")) {
-        target += "?utm_source=partnerB&utm_medium=B" + query + hash;
+     
+      const routes = {
+        "/x7": "?utm_source=reddit&utm_medium=IN&utm_campaign=team_in",
+        "/y9": "?utm_source=reddit&utm_medium=PH&utm_campaign=team_ph",
+        "/k3": "?utm_source=reddit&utm_medium=team3&utm_campaign=test3",
+        "/z8": "?utm_source=reddit&utm_medium=team4&utm_campaign=test4",
+        "/q5": "?utm_source=reddit&utm_medium=team5&utm_campaign=test5"
+      };
+
+      if (routes[path]) {
+        target += routes[path];
       } else {
-        target += query + hash;
+        target += "?utm_source=reddit&utm_medium=default&utm_campaign=generic";
       }
+
+      // 保留用户原始 query 和 hash
+      target += query + hash;
 
       window.location.replace(target);
     })();
   </script>
 </head>
 <body>
-  <p>Redirecting...</p>
+  <p>Redirecting…</p>
 </body>
 </html>
-
