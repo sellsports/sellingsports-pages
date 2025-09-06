@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    (function() {
+      const path = window.location.pathname.toLowerCase();
+      const query = window.location.search;
+      const hash = window.location.hash;
+      let target = "https://sellingsports.com"; // 把这里改成真正的目标域名
+
+      if (path.startsWith("/a")) {
+        target += "?utm_source=partnerA&utm_medium=A" + query + hash;
+      } else if (path.startsWith("/b")) {
+        target += "?utm_source=partnerB&utm_medium=B" + query + hash;
+      } else {
+        target += query + hash;
+      }
+
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
