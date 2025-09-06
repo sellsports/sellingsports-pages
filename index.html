@@ -8,9 +8,9 @@
       const path = window.location.pathname.toLowerCase();
       const query = window.location.search;
       const hash = window.location.hash;
-      let target = "https://antsports.tv/"; 
 
-     
+      let target = "https://antsports.tv"; // 👈 
+      // 路径对应表
       const routes = {
         "/x7": "?utm_source=reddit&utm_medium=IN&utm_campaign=team_in",
         "/y9": "?utm_source=reddit&utm_medium=PH&utm_campaign=team_ph",
@@ -25,9 +25,8 @@
         target += "?utm_source=reddit&utm_medium=default&utm_campaign=generic";
       }
 
-      // 保留用户原始 query 和 hash
+      // 拼接 query & hash
       target += query + hash;
-
       window.location.replace(target);
     })();
   </script>
