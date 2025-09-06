@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    (function() {
+      const path = window.location.pathname.toLowerCase();
+      const query = window.location.search;
+      const hash = window.location.hash;
+
+      let target = "https://antsports.tv"; // 👈 
+      // 路径对应表
+      const routes = {
+        "/x7": "?utm_source=reddit&utm_medium=IN&utm_campaign=team_in",
+        "/y9": "?utm_source=reddit&utm_medium=PH&utm_campaign=team_ph",
+        "/k3": "?utm_source=reddit&utm_medium=team3&utm_campaign=test3",
+        "/z8": "?utm_source=reddit&utm_medium=team4&utm_campaign=test4",
+        "/q5": "?utm_source=reddit&utm_medium=team5&utm_campaign=test5"
+      };
+
+      if (routes[path]) {
+        target += routes[path];
+      } else {
+        target += "?utm_source=reddit&utm_medium=default&utm_campaign=generic";
+      }
+
+      // 拼接 query & hash
+      target += query + hash;
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
