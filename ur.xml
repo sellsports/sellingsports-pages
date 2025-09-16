@@ -4,11 +4,13 @@
     <InLine>
       <AdSystem>Custom</AdSystem>
       <AdTitle>Telegram Promotion</AdTitle>
+
+      <Impression><![CDATA[https://example.com/track/impression]]></Impression>
+
       <Creatives>
+        <!-- 视频广告 -->
         <Creative sequence="1" id="videoAd">
-          <!-- 使用 skipoffset 指定可以跳过的时间 -->
           <Linear skipoffset="00:00:06">
-            <!-- 总时长 -->
             <Duration>00:00:15</Duration>
             <VideoClicks>
               <ClickThrough><![CDATA[https://t.me/predictionsforthegame]]></ClickThrough>
@@ -19,6 +21,20 @@
               </MediaFile>
             </MediaFiles>
           </Linear>
+        </Creative>
+
+        <!-- 横幅伴随广告 -->
+        <Creative sequence="2" id="companionAd">
+          <CompanionAds>
+            <Companion width="300" height="60">
+              <StaticResource creativeType="image/jpeg">
+                <![CDATA[https://upload.wikimedia.org/wikipedia/zh/thumb/2/24/FC_Barcelona.svg/250px-FC_Barcelona.svg.png]]>
+              </StaticResource>
+              <CompanionClickThrough>
+                <![CDATA[https://antsports.tv/en/price]]>
+              </CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
