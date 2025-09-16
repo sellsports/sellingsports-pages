@@ -11,14 +11,16 @@
       background: #000;
       height: 100%;
     }
+
+    /* 播放器固定宽高，居中 */
     #myElement {
-  width: 640px;
-  height: 360px;
-  margin: 20px auto; /* 居中 */
-  background: #000;  /* 播放器容器背景 */
+      width: 640px;
+      height: 360px;
+      margin: 40px auto; /* 上下留白，水平居中 */
+      background: #000;
     }
 
-    /* 永远显示控制栏的基础 CSS */
+    /* 永远显示控制栏 */
     .jwplayer .jw-controls {
       opacity: 1 !important;
       visibility: visible !important;
@@ -36,6 +38,7 @@
 <body>
   <div id="myElement">Loading player...</div>
 
+  <!-- 引入 JW Player 脚本 -->
   <script src="https://cdn.jwplayer.com/libraries/m19ahv3T.js"></script>
 
   <script>
@@ -73,11 +76,11 @@
       };
     })();
 
+    // === 初始化播放器（固定宽高）===
     const player = jwplayer("myElement").setup({
       file: "https://live-hls-web-aje.getaj.net/AJE/01.m3u8",
-      image: "",
-      width: "100%",
-      aspectratio: "16:9",
+      width: 640,
+      height: 360,
       autostart: false,
       controls: true,
       advertising: {
@@ -89,33 +92,26 @@
     // === 强制控制栏一直显示 ===
     player.on('ready', function() {
       const container = document.getElementById('myElement');
-      // 定时清理 inactive class
       setInterval(() => {
         container.classList.remove('jw-flag-user-inactive');
       }, 1000);
     });
 
-    // 捕捉常见错误
+    // 捕捉错误与警告
     player.on('error', function(event) {
       console.error("JW Player 播放错误：", event);
-      alert("JW Player 播放错误： " + JSON.stringify(event));
+      alert("JW Player 播放错误：" + JSON.stringify(event));
     });
-
-    // 捕捉广告错误
     player.on('adError', function(event) {
       console.error("广告错误：", event);
-      alert("广告错误： " + JSON.stringify(event));
+      alert("广告错误：" + JSON.stringify(event));
     });
-
-    // 捕捉加载失败（setup）
     player.on('setupError', function(event) {
-      console.error("播放器配置错误：", event);
-      alert("播放器配置错误： " + JSON.stringify(event));
+      console.error("配置错误：", event);
+      alert("配置错误：" + JSON.stringify(event));
     });
-
-    // 警告信息
     player.on('warning', function(event) {
-      console.warn("JW Player 警告：", event);
+      console.warn("警告：", event);
     });
   </script>
 </body>
