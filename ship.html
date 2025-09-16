@@ -16,7 +16,7 @@
       height: 100vh;
     }
 
-    /* === 永远显示控制栏 === */
+    /* 永远显示控制栏的基础 CSS */
     .jwplayer .jw-controls {
       opacity: 1 !important;
       visibility: visible !important;
@@ -24,8 +24,6 @@
       transition: none !important;
       pointer-events: auto !important;
     }
-
-    /* === 用户不活跃时也保持显示 === */
     .jwplayer.jw-flag-user-inactive .jw-controls {
       opacity: 1 !important;
       visibility: visible !important;
@@ -36,7 +34,6 @@
 <body>
   <div id="myElement">Loading player...</div>
 
-  <!-- 使用 Dashboard 提供的 JW Player 库 -->
   <script src="https://cdn.jwplayer.com/libraries/m19ahv3T.js"></script>
 
   <script>
@@ -75,7 +72,7 @@
     })();
 
     const player = jwplayer("myElement").setup({
-      file: "https://live-hls-web-aje.getaj.net/AJE/01.m3u8", // ⚠️ 改成你的 HLS 直播流地址
+      file: "https://live-hls-web-aje.getaj.net/AJE/01.m3u8",
       image: "",
       width: "100%",
       aspectratio: "16:9",
@@ -85,6 +82,15 @@
         client: "vast",
         scheduleid: "75b47OiQ"
       }
+    });
+
+    // === 强制控制栏一直显示 ===
+    player.on('ready', function() {
+      const container = document.getElementById('myElement');
+      // 定时清理 inactive class
+      setInterval(() => {
+        container.classList.remove('jw-flag-user-inactive');
+      }, 1000);
     });
 
     // 捕捉常见错误
