@@ -37,7 +37,7 @@
 </head>
 <body>
   <div id="myElement">Loading player...</div>
-
+<div id="companionSlot" style="width:300px;height:60px;"></div>
   <!-- 引入 JW Player 脚本 -->
   <script src="https://cdn.jwplayer.com/libraries/m19ahv3T.js"></script>
 
@@ -85,7 +85,9 @@
       controls: true,
       advertising: {
         client: "vast",
-        scheduleid: "75b47OiQ"
+        scheduleid: "75b47OiQ",
+        companions: true
+
       }
     });
 
