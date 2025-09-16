@@ -6,15 +6,14 @@
       <AdTitle>Telegram Promotion</AdTitle>
       <Creatives>
         <Creative sequence="1" id="videoAd">
-          <Linear>
-            <!-- 广告时长 -->
+          <!-- 使用 skipoffset 指定可以跳过的时间 -->
+          <Linear skipoffset="00:00:05">
+            <!-- 总时长 -->
             <Duration>00:00:15</Duration>
             <VideoClicks>
-              <!-- 点击广告跳转的链接 -->
               <ClickThrough><![CDATA[https://t.me/predictionsforthegame]]></ClickThrough>
             </VideoClicks>
             <MediaFiles>
-              <!-- 广告视频文件 -->
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" scalable="true" maintainAspectRatio="true">
                 <![CDATA[https://cdn.jwplayer.com/videos/HkauGhRi-640.mp4]]>
               </MediaFile>
