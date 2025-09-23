@@ -11,13 +11,13 @@
         <!-- 视频广告 -->
         <Creative sequence="1" id="videoAd">
           <Linear skipoffset="00:00:15">
-            <Duration>00:00:23</Duration>
+            <Duration>00:00:22</Duration>
             <VideoClicks>
               <ClickThrough><![CDATA[https://antsports.tv/en/price]]></ClickThrough>
             </VideoClicks>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" scalable="true" maintainAspectRatio="true">
-                <![CDATA[https://static.antsports.tv/exp2/product.m3u8]]>
+                <![CDATA[https://static.antsports.tv/exp/newads/newads.m3u8]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
