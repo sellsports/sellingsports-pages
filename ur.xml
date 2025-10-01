@@ -10,8 +10,8 @@
       <Creatives>
         <!-- 视频广告 -->
         <Creative sequence="1" id="videoAd">
-          <Linear skipoffset="00:00:15">
-            <Duration>00:00:22</Duration>
+          <Linear skipoffset="00:00:20">
+            <Duration>00:00:24</Duration>
             <VideoClicks>
               <ClickThrough><![CDATA[https://antsports.tv/en/price]]></ClickThrough>
             </VideoClicks>
