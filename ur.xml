@@ -10,14 +10,14 @@
       <Creatives>
         <!-- 视频广告 -->
         <Creative sequence="1" id="videoAd">
-          <Linear skipoffset="00:00:20">
-            <Duration>00:00:24</Duration>
+          <Linear skipoffset="00:00:17">
+            <Duration>00:00:17</Duration>
             <VideoClicks>
               <ClickThrough><![CDATA[https://antsports.tv/en/price]]></ClickThrough>
             </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" scalable="true" maintainAspectRatio="true">
-                <![CDATA[https://static.antsports.tv/exp/exp1/nnnnn.m3u8]]>
+              <MediaFile delivery="streaming" type="application/x-mpegURL" scalable="true" maintainAspectRatio="true" >
+                <![CDATA[https://static.antsports.tv/exp2/150ads/new150.m3u8]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
